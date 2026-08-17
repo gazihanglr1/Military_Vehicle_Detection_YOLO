@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+title: "Military Vehicle Detection & Tracking"
+message: "If you use this repository, please cite the repository and the underlying YOLO12 work."
+type: software
+authors:
+  - family-names: Güler
+    given-names: Gazihan
+repository-code: "https://github.com/gazihanglr1/Military_Vehicle_Detection_YOLO"
+license: AGPL-3.0
+version: "1.0.0"
+date-released: "2026-08-17"
