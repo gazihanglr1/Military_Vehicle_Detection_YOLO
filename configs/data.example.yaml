@@ -1,0 +1,11 @@
+path: /absolute/path/to/dataset
+
+train: images/train
+val: images/val
+test: images/test
+
+names:
+  0: tank
+  1: armored_vehicle
+  2: military_truck
+  3: military_vehicle

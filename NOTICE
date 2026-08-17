@@ -1,0 +1,12 @@
+Third-party/reference projects
+
+Orion — Automated Target Recognition of Military Vehicles in Video Data
+Author: Jonas Renault
+Repository: https://github.com/jonasrenault/orion
+License: MIT
+
+No Orion source code is included in this repository.
+
+Ultralytics
+Repository: https://github.com/ultralytics/ultralytics
+License: AGPL-3.0, subject to current Ultralytics terms.
