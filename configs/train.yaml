@@ -1,0 +1,27 @@
+# Reproducible baseline training configuration
+model: yolo12n.pt
+data: configs/data.yaml
+epochs: 100
+imgsz: 640
+batch: -1
+device: auto
+workers: 8
+patience: 25
+project: runs/train
+name: military_vehicle_yolo12n_baseline
+seed: 42
+deterministic: true
+pretrained: true
+cache: false
+amp: true
+plots: true
+save_period: 10
+
+# Conservative augmentations for a first baseline.
+degrees: 5.0
+translate: 0.10
+scale: 0.50
+fliplr: 0.50
+mosaic: 1.0
+mixup: 0.05
+close_mosaic: 10

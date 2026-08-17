@@ -1,0 +1,10 @@
+model: ""
+data: configs/data.yaml
+split: val
+imgsz: 640
+conf: 0.001
+iou: 0.60
+device: auto
+plots: true
+project: runs/val
+name: military_vehicle_eval

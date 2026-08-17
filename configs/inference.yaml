@@ -1,0 +1,11 @@
+model: ""
+source: ""
+imgsz: 640
+conf: 0.25
+iou: 0.50
+device: auto
+save: true
+save_txt: true
+save_conf: true
+project: results/inference
+name: prediction

@@ -1,0 +1,10 @@
+model: ""
+source: ""
+imgsz: 640
+conf: 0.25
+iou: 0.50
+tracker: bytetrack.yaml
+device: auto
+save: true
+project: results/tracking
+name: tracking

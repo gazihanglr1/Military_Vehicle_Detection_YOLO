@@ -1,4 +1,7 @@
-# Military Vehicle Detection
+# Military Vehicle Detection & Tracking
+
+[![CI](https://github.com/YOUR_USERNAME/Military-Vehicle-Detection/actions/workflows/ci.yml/badge.svg)](https://github.com/YOUR_USERNAME/Military-Vehicle-Detection/actions)
+
 
 Independent computer-vision project for detecting and tracking military vehicles in images and video using Ultralytics YOLO.
 
@@ -34,7 +37,41 @@ pip install -r requirements.txt
 ```
 
 ## Dataset
-Copy `configs/data.example.yaml` to `configs/data.yaml` and edit it.
+
+**Selected baseline:** `llama-farm/military-labeled-yolo` on Hugging Face.
+
+The dataset is reported as CC0-1.0 and contains 12 classes sourced from DVIDS public-domain imagery. We use a focused 7-class subset for this project:
+
+```text
+0 tank
+1 apc
+2 artillery
+3 mlrs
+4 military_truck
+5 helicopter
+6 aircraft
+```
+
+The original dataset is about 9.61 GB, so it is **not included in this GitHub repository**. The project includes a downloader/filter script that creates the focused YOLO dataset locally.
+
+Dataset source:
+https://huggingface.co/datasets/llama-farm/military-labeled-yolo
+
+Download and prepare:
+
+```bash
+pip install -r requirements.txt
+python scripts/download_dataset.py --output data/military_vehicle_dataset
+```
+
+Then copy `configs/data.example.yaml` to `configs/data.yaml` and set:
+
+```yaml
+path: data/military_vehicle_dataset
+```
+
+The downloader keeps only the seven classes above and remaps their class IDs.
+
 
 Expected YOLO layout:
 ```text
@@ -81,5 +118,34 @@ This starter uses the Ultralytics YOLO ecosystem and is therefore prepared for A
 
 Orion is MIT licensed and is referenced only for project direction/workflow; its source is not copied into this repository.
 
+## Advanced workflow
+
+```bash
+# 1) Download and prepare the dataset
+python scripts/download_dataset.py --output data/military_vehicle_dataset
+
+# 2) Copy the example config
+cp configs/data.example.yaml configs/data.yaml
+
+# 3) Validate
+python scripts/validate_dataset.py --data configs/data.yaml
+
+# 4) Report class distribution
+python scripts/dataset_report.py --data configs/data.yaml
+
+# 5) Train
+python scripts/train_advanced.py --config configs/train.yaml
+
+# 6) Evaluate
+# edit configs/evaluate.yaml -> model: runs/train/.../weights/best.pt
+python scripts/evaluate.py --config configs/evaluate.yaml
+
+# 7) Inference / tracking
+# edit configs/inference.yaml or configs/tracking.yaml
+python scripts/infer_advanced.py --config configs/inference.yaml
+python scripts/track_advanced.py --config configs/tracking.yaml
+```
+
 ## Status
-Starter repository. Dataset, experiments, trained weights, metrics, and example results are added as the project develops.
+Professional research starter with dataset acquisition, validation, reproducible training, evaluation, inference, tracking, CI, documentation, and licensing/provenance notes.
+

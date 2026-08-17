@@ -1,11 +1,13 @@
-path: /absolute/path/to/dataset
+path: data/military_vehicle_dataset
 
 train: images/train
 val: images/val
-test: images/test
 
 names:
   0: tank
-  1: armored_vehicle
-  2: military_truck
-  3: military_vehicle
+  1: apc
+  2: artillery
+  3: mlrs
+  4: military_truck
+  5: helicopter
+  6: aircraft
